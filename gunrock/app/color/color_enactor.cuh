@@ -110,8 +110,8 @@ struct ColorIterationLoop
                 (colors[u] != color + 2) ||
             (v == u))
           continue;
-        if (rand[v] <= rand[u]) colormax = false;
-        if (rand[v] >= rand[u]) colormin = false;
+        if (rand[v] < rand[u] || (rand[v] == rand[u] && v < u)) colormax = false;
+        if (rand[v] > rand[u] || (rand[v] == rand[u] && v > u)) colormin = false;
       }
 
       if (colormax) { 
